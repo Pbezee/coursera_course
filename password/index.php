@@ -14,23 +14,19 @@
 Debug Output:
 <?php
 $goodtext = "Not found";
-// If there is no parameter, this code is all skipped
+
 if (isset($_GET['md5'])) {
     $time_pre = microtime(true);
     $md5 = $_GET['md5'];
 
-    // This is our alphabet
     $txt = "01234567890";
     $show = 16;
 
-    // Outer loop to go through the alphabet for the
-    // first position in our "possible" pre-hash
-    // text
     for ($i = 0; $i < strlen($txt); $i++) {
-        $ch1 = $txt[$i];   // The first of two characters
+        $ch1 = $txt[$i];
 
         for ($j = 0; $j < strlen($txt); $j++) {
-            $ch2 = $txt[$j];  // Our second character
+            $ch2 = $txt[$j];
 
             for ($k = 0; $k < strlen($txt); $k++) {
                 $ch3 = $txt[$k];
@@ -43,7 +39,7 @@ if (isset($_GET['md5'])) {
                     $check = hash('md5', $try);
                     if ($check == $md5) {
                         $goodtext = $try;
-                        break;   // Exit the inner loop
+                        break;
                     }
 
                     if ($show > 0) {
