@@ -11,6 +11,8 @@
     <?php
     if (isset($_GET['guess'])) {
         $secretNumber = 46;
+    } else {
+        echo "<p>Missing guess parameter.</p>";
     }
 
     if (isset($_GET['guess'])) {
@@ -28,6 +30,7 @@
     } else {
         echo "<p>Your guess is too short.</p>";
     }
+
     ?>
 
 </body>
