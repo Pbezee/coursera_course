@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Pyae Bhone Zaw</title>
+    <title>Pyae Bhone Zaw c6a00a82</title>
 </head>
 
 <body>
@@ -16,19 +16,19 @@
     }
 
     if (isset($_GET['guess'])) {
-        $userGuess = intval($_GET['guess']);
+        $userGuess = ($_GET['guess']);
 
-        if (!is_numeric($userGuess)) {
+        if (empty($userGuess)) {
+            echo "<p>Your guess is too short.</p>";
+        } elseif (!is_numeric($userGuess)) {
             echo "<p>Your guess is not a number.</p>";
-        } elseif ($userGuess === $secretNumber) {
+        } elseif (intval($userGuess) === $secretNumber) {
             echo "<p>Congratulations - You are right</p>";
-        } elseif ($userGuess < $secretNumber) {
+        } elseif (intval($userGuess) < $secretNumber) {
             echo "<p>Your guess is too low.</p>";
         } else {
             echo "<p>Your guess is too high.</p>";
         }
-    } else {
-        echo "<p>Your guess is too short.</p>";
     }
 
     ?>
